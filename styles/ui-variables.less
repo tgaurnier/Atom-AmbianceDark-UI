@@ -1,14 +1,47 @@
-// Colors
+/**
+ * Main Ambiance Dark Colors
+ */
+@ambiance-white: #dfdbd2;
+@ambiance-gray-bright: #acaba7;
+@ambiance-gray-light: #807d78;
+@ambiance-gray-medium: #5c5b57;
+@ambiance-gray-dark: #3c3b37;
+@ambiance-gray-black: #1c1b17;
+@ambiance-black: #0c0b07;
+@ubuntu-orange-light: #f07746;
+@ubuntu-orange-dark: #dd4814;
+@aubergine-bright: #aa2e9f;
+@aubergine-light: #77216f;
+@aubergine-medium: #5e2750;
+@aubergine-dark: #2c001e;
 
-@text-color: #aaa;
-@text-color-subtle: #555;
-@text-color-highlight: #fff;
+
+/**
+ * Misc Ambiance Dark Colors
+ */
+@tan: #b5ab9c;
+@yellow: #fcfcbd;
+@brown: #ad7829;
+@brown-light: #faad3d;
+@blue: #617ad6;
+@blue-light: #8aadd4;
+@white: #ebebeb;
+@red: #df382c;
+@green: #4e9a06;
+
+
+/**
+ * Text colors
+ */
+@text-color: @ambiance-gray-light;
+@text-color-subtle: @ambiance-white;
+@text-color-highlight: @ambiance-white;
 @text-color-selected: @text-color-highlight;
 
-@text-color-info: #5293d8;
-@text-color-success: #26c26a;
-@text-color-warning: #ff982d;
-@text-color-error: #c00;
+@text-color-info: @tan;
+@text-color-success: @white;
+@text-color-warning: @brown;
+@text-color-error: @white;
 
 @text-color-ignored: @text-color-subtle;
 @text-color-added: @text-color-success;
@@ -16,63 +49,90 @@
 @text-color-modified: @text-color-warning;
 @text-color-removed: @text-color-error;
 
-@background-color-info: #0098ff;
-@background-color-success: #17ca65;
-@background-color-warning: #ffaa2c;
-@background-color-error: #c00;
-@background-color-highlight: rgba(255, 255, 255, 0.07);
-@background-color-selected: #4182C4;
+/**
+ * Background colors
+ */
+@background-color-info: @yellow;
+@background-color-success: @green;
+@background-color-warning: @brown-light;
+@background-color-error: @red;
+@background-color-highlight: fade(@ubuntu-orange-light, 80%);
+@background-color-selected: @ubuntu-orange-light;
 
-@app-background-color: #333;
+@app-background-color: @ambiance-gray-black;
 
-@base-background-color: lighten(@tool-panel-background-color, 5%);
-@base-border-color: rgba(0, 0, 0, 0.5);
+@base-background-color: @ambiance-gray-dark;
+@base-border-color: fade(@ambiance-black, 50%);
 
+
+/**
+ * Pane colors
+ */
 @pane-item-background-color: @base-background-color;
-@pane-item-border-color: rgba(0, 0, 0, 0.5);
+@pane-item-border-color: fade(@ambiance-black, 50%);
 
-@input-background-color: #212224;
+
+/**
+ * Input colors
+ */
+@input-background-color: @base-background-color;
 @input-border-color: @base-border-color;
 
-@tool-panel-background-color: #1d1f21;
+
+/**
+ * Panel colors
+ */
+@tool-panel-background-color: @ambiance-gray-black;
 @tool-panel-border-color: @base-border-color;
 
-@inset-panel-background-color: #161719;
+@inset-panel-background-color: @ambiance-gray-black;
 @inset-panel-border-color: @base-border-color;
 
-@panel-heading-background-color: #43484d;
+@panel-heading-background-color: @ambiance-gray-black;
 @panel-heading-border-color: fadein(@base-border-color, 10%);
 
-@overlay-background-color: #202123;
+
+@overlay-background-color: @ambiance-gray-dark;
 @overlay-border-color: @background-color-highlight;
 
-@button-background-color: #43484d;
+
+/**
+ * Button colors
+ */
+@button-background-color: @ambiance-gray-dark;
 @button-background-color-hover: lighten(@button-background-color, 5%);
-@button-background-color-selected: #5c6064;
+@button-background-color-selected: @ubuntu-orange-light;
+@button-text-color-selected: @ambiance-white;
 @button-border-color: @base-border-color;
 
-@tab-bar-background-color: #222;
+
+@tab-bar-background-color: @ambiance-black;
 @tab-bar-border-color: darken(@tab-background-color-active, 10%);
-@tab-background-color: #333;
-@tab-background-color-active: #222;
-@tab-border-color: #484848;
+@tab-background-color: @ambiance-gray-black;
+@tab-background-color-active: @ambiance-gray-dark;
+@tab-border-color: @ambiance-black;
+
 
 @tree-view-background-color: @tool-panel-background-color;
 @tree-view-border-color: @tool-panel-border-color;
 
-@scrollbar-background-color: #222425; // Needs to be opaque -> atom/atom/issues/4578
-@scrollbar-color: rgba(92, 92, 92, 0.5);
+
+@scrollbar-background-color: @ambiance-gray-black; // Needs to be opaque -> atom/atom/issues/4578
+@scrollbar-color: @ubuntu-orange-light;
+
 
 @ui-site-color-1: @background-color-success; // green
 @ui-site-color-2: @background-color-info; // blue
 @ui-site-color-3: @background-color-warning; // orange
-@ui-site-color-4: #db2ff4; // purple
-@ui-site-color-5: #f5e11d; // yellow
+@ui-site-color-4: @aubergine-light; // purple
+@ui-site-color-5: @ubuntu-orange-light; // yellow
 
 
-// Sizes
+/**
+ * Sizes
+ */
 
-@font-size: 11px;
+@font-size: 14px;
 @input-font-size: 14px;
 
 @disclosure-arrow-size: 12px;
@@ -83,9 +143,11 @@
 @component-line-height: 25px;
 @component-border-radius: 2px;
 
-@tab-height: 26px;
+@tab-height: 24px;
 
 
-// Other
+/**
+ * Fonts
+ */
 
-@font-family: 'Lucida Grande', 'Segoe UI', Ubuntu, Cantarell, sans-serif;
+@font-family: 'Ubuntu', arial, sans-serif;

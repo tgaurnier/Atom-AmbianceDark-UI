@@ -1,56 +1,63 @@
 @import "ui-variables";
 @import "ui-mixins";
 
-.btn-background (@color, @hover-color, @selected-color, @text-color) {
-  color: @text-color;
-  background-color: transparent;
-  background-image: -webkit-linear-gradient(@color, darken(@color, 5%));
+.btn-background (@bg, @hover, @selected, @fg) {
+	color: @fg;
+	background-color: transparent;
+	background-image: -webkit-linear-gradient(@bg, darken(@bg, 5%));
 
-  &:focus {
-    color: @text-color;
-  }
-  &:hover {
-    color: @text-color-highlight;
-    background-image: -webkit-linear-gradient(@hover-color, darken(@hover-color, 5%));
-  }
-  &.selected,
-  &.selected:hover {
-    color: @text-color-highlight;
-    background-image: -webkit-linear-gradient(darken(@selected-color, 5%), @selected-color);
-    &:hover {
-      background-image: -webkit-linear-gradient(@selected-color, darken(@selected-color, 5%));
-    }
-  }
+	&:focus {
+		color: @fg;
+	}
+	&:hover {
+		color: @fg;
+		background-image: -webkit-linear-gradient(@hover, darken(@hover, 5%));
+	}
+	&.selected,
+	&.selected:hover {
+		color: @fg;
+		background-image: -webkit-linear-gradient(darken(@selected, 5%), @selected);
+		&:hover {
+			background-image: -webkit-linear-gradient(@selected, darken(@selected, 5%));
+		}
+	}
 }
 
-.btn-variant (@color) {
-  @bg: darken(@color, 10%);
-  @hover: @color;
-  @selected: @color;
-  .btn-background(@bg, @hover, @selected, @text-color-highlight);
+.btn-variant (@bg, @fg) {
+	@hover: lighten(@bg, 5%);
+	@selected: @bg;
+	.btn-background(@bg, @hover, @selected, @fg);
 }
 
 .btn {
-  .btn-background(@button-background-color, @button-background-color-hover, @button-background-color-selected, @text-color);
+	.btn-background(
+		@button-background-color,
+		@button-background-color-hover,
+		@button-background-color-selected,
+		@text-color
+	) !important;
+	&.selected { color: @button-text-color-selected !important; }
+	font-family: 'Ubuntu' !important;
+	font-size: @font-size !important;
 }
 
 .btn.btn-primary {
-  .btn-variant(@background-color-info);
+	.btn-variant(@button-background-color, @text-color);
 }
 .btn.btn-info {
-  .btn-variant(@background-color-info);
+	.btn-variant(@button-background-color, @text-color-subtle);
 }
 .btn.btn-success {
-  .btn-variant(@background-color-success);
+	.btn-variant(@background-color-success, @text-color-success);
 }
 .btn.btn-warning {
-  .btn-variant(@background-color-warning);
+	.btn-variant(@background-color-warning, @text-color-warning);
 }
 .btn.btn-error {
-  .btn-variant(@background-color-error);
+	.btn-variant(@background-color-error, @text-color-error);
 }
 
 .caret {
-  border-top: 5px solid #fff;
-  margin-top: -1px;
+	border-top: 5px solid #fff;
+	margin-top: -1px;
 }
